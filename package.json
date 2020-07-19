@@ -1,0 +1,23 @@
+{
+  "name": "twitch-emote-handler",
+  "version": "1.0.0",
+  "description": "A simple emote handler for Twitch channels",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TylerMathis/twitch-emote-handler.git"
+  },
+  "keywords": [
+    "Twitch",
+    "irc"
+  ],
+  "author": "Tyler Hostler-Mathis <Hostler.Mathis.Tyler@gmail.com> (TylerMathis.github.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TylerMathis/twitch-emote-handler/issues"
+  },
+  "homepage": "https://github.com/TylerMathis/twitch-emote-handler#readme"
+}
