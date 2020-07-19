@@ -1,11 +1,15 @@
 'use strict';
 
-let fs = require("fs");
+let fs = require('fs');
+let emoteData = require('./emote_data.json');
 
-let emoteData = require("./emote_data.json");
+exports.respondEmoteStats = function(client, target) {
+	emoteData[0].emotes.forEach(emote =>
+		client.say(target, emote.name + ' : ' + emote.count));
+}
 
 exports.handleEmotes = function(msg, context) {
-	const tokenizedMsg = msg.split(" ");
+	const tokenizedMsg = msg.split(' ');
 
 	let emotesFound = 0;
 	tokenizedMsg.forEach(tok =>
@@ -20,7 +24,7 @@ exports.checkEmote = function(tok, context) {
     for (var iEmote = 0; iEmote < emoteData[iTier].emotes.length; iEmote++) {
       if (tok == emoteData[iTier].emotes[iEmote].name) {
         emoteData[iTier].emotes[iEmote].count++;
-        console.log("~ " + context["display-name"] + " used " + emoteData[iTier].emotes[iEmote].name);
+        console.log('~ ' + context['display-name'] + ' used ' + emoteData[iTier].emotes[iEmote].name);
         return 1;
       }
     }
@@ -29,14 +33,18 @@ exports.checkEmote = function(tok, context) {
 }
 
 exports.saveEmoteData = function(bak) {
-	let fileName = "emote_usage.json";
-	if (bak) fileName += ".bak"; 
-	fs.writeFile("emote_usage.json", JSON.stringify(emoteData, null, 2), err => {
+	let fileName = __dirname + '/emote_data.json';
+	if (bak) {
+		fileName += '.bak';
+		console.log('~ emote_data.json has been backed up to emote_data.json.bak');
+	}  
+	fs.writeFile(fileName, JSON.stringify(emoteData, null, 2), err => {
 	    if (err) {
-	      console.log(`FATAL: There was an error saving emote_usage.json...`);
+	      console.log(`FATAL: There was an error saving emote_data.json...`);
 	      throw err;
 	    }
 	  });
+	console.log('~ emote_data.json has been udpated.')
 }
 
 exports.resetEmoteData = function() {
@@ -46,5 +54,5 @@ exports.resetEmoteData = function() {
 
   exports.saveEmoteData();
 
-  console.log("~ Emote data has been reset.");
+  console.log('~ Emote data has been reset.');
 }

@@ -1,14 +1,14 @@
 {
-  "name": "twitch-emote-handler",
-  "version": "1.0.5",
-  "description": "A simple emote handler for Twitch channels",
+  "name": "mrmedii-emote-handler",
+  "version": "1.0.0",
+  "description": "A simple emote handler for MrMedii's twitch channel",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TylerMathis/twitch-emote-handler.git"
+    "url": "git+https://github.com/TylerMathis/mrmedii-emote-handler.git"
   },
   "keywords": [
     "Twitch",
@@ -17,10 +17,11 @@
   "author": "Tyler Hostler-Mathis <Hostler.Mathis.Tyler@gmail.com> (TylerMathis.github.io)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TylerMathis/twitch-emote-handler/issues"
+    "url": "https://github.com/TylerMathis/mrmedii-emote-handler/issues"
   },
-  "homepage": "https://github.com/TylerMathis/twitch-emote-handler#readme",
+  "homepage": "https://github.com/TylerMathis/mrmedii-emote-handler#readme",
   "dependencies": {
     "fs": "0.0.1-security"
-  }
+  },
+  "devDependencies": {}
 }
