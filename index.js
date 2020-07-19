@@ -1,6 +1,6 @@
 'use strict';
 
-let fs = require('fs');
+const fs = require('fs');
 let emoteData = require('./emote_data.json');
 
 exports.respondEmoteStats = function(client, target) {
@@ -24,7 +24,7 @@ exports.checkEmote = function(tok, context) {
     for (var iEmote = 0; iEmote < emoteData[iTier].emotes.length; iEmote++) {
       if (tok == emoteData[iTier].emotes[iEmote].name) {
         emoteData[iTier].emotes[iEmote].count++;
-        console.log('~ ' + context['display-name'] + ' used ' + emoteData[iTier].emotes[iEmote].name);
+        console.log('eh ~ ' + context['display-name'] + ' used ' + emoteData[iTier].emotes[iEmote].name);
         return 1;
       }
     }
@@ -36,15 +36,15 @@ exports.saveEmoteData = function(bak) {
 	let fileName = __dirname + '/emote_data.json';
 	if (bak) {
 		fileName += '.bak';
-		console.log('~ emote_data.json has been backed up to emote_data.json.bak');
+		console.log('eh ~ emote_data.json has been backed up to emote_data.json.bak');
 	}  
 	fs.writeFile(fileName, JSON.stringify(emoteData, null, 2), err => {
 	    if (err) {
-	      console.log(`FATAL: There was an error saving emote_data.json...`);
+	      console.log(`eh ~ FATAL: There was an error saving emote_data.json...`);
 	      throw err;
 	    }
 	  });
-	console.log('~ emote_data.json has been udpated.')
+	console.log('eh ~ emote_data.json has been udpated.')
 }
 
 exports.resetEmoteData = function() {
@@ -54,5 +54,5 @@ exports.resetEmoteData = function() {
 
   exports.saveEmoteData();
 
-  console.log('~ Emote data has been reset.');
+  console.log('eh ~ Emote data has been reset.');
 }

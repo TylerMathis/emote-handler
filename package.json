@@ -1,6 +1,6 @@
 {
   "name": "mrmedii-emote-handler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple emote handler for MrMedii's twitch channel",
   "main": "index.js",
   "scripts": {
