@@ -1,5 +1,7 @@
 'use strict';
 
+let fs = require("fs");
+
 let emoteData = require("./emote_data.json");
 
 exports.handleEmotes = function(msg, context) {
@@ -7,10 +9,10 @@ exports.handleEmotes = function(msg, context) {
 
 	let emotesFound = 0;
 	tokenizedMsg.forEach(tok =>
-		emotesFound += checkEmote(tok, context));
+		emotesFound += exports.checkEmote(tok, context));
 
 	if (emotesFound > 0)
-		saveEmoteData();
+		exports.saveEmoteData();
 }
 
 exports.checkEmote = function(tok, context) {
@@ -26,7 +28,9 @@ exports.checkEmote = function(tok, context) {
   return 0;
 }
 
-exports.saveEmoteData = function() {
+exports.saveEmoteData = function(bak) {
+	let fileName = "emote_usage.json";
+	if (bak) fileName += ".bak"; 
 	fs.writeFile("emote_usage.json", JSON.stringify(emoteData, null, 2), err => {
 	    if (err) {
 	      console.log(`FATAL: There was an error saving emote_usage.json...`);
@@ -40,7 +44,7 @@ exports.resetEmoteData = function() {
 		tier.emotes.forEach(emote =>
 			emote.count = 0));
 
-  saveEmoteData();
+  exports.saveEmoteData();
 
   console.log("~ Emote data has been reset.");
 }

@@ -1,6 +1,6 @@
 {
   "name": "twitch-emote-handler",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "A simple emote handler for Twitch channels",
   "main": "index.js",
   "scripts": {
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/TylerMathis/twitch-emote-handler/issues"
   },
-  "homepage": "https://github.com/TylerMathis/twitch-emote-handler#readme"
+  "homepage": "https://github.com/TylerMathis/twitch-emote-handler#readme",
+  "dependencies": {
+    "fs": "0.0.1-security"
+  }
 }
