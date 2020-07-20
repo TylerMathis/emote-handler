@@ -44,7 +44,7 @@ exports.saveEmoteData = function(bak) {
 	      throw err;
 	    }
 	  });
-	exports.log('emote_data.json has been udpated.')
+	exports.log('emote_data.json has been udpated')
 }
 
 exports.resetEmoteData = function() {
@@ -54,7 +54,7 @@ exports.resetEmoteData = function() {
 
   exports.saveEmoteData();
 
-  exports.log('Emote data has been reset.');
+  exports.log('Emote data has been reset');
 }
 
 exports.log = function(msg) {
