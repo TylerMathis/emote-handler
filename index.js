@@ -34,17 +34,18 @@ exports.checkEmote = function(tok, context) {
 
 exports.saveEmoteData = function(bak) {
 	let fileName = __dirname + '/emote_data.json';
-	if (bak) {
-		fileName += '.bak';
-		exports.log('emote_data.json has been backed up to emote_data.json.bak');
-	}  
+	if (bak)
+		fileName = './emote_data.json.bak';
 	fs.writeFile(fileName, JSON.stringify(emoteData, null, 2), err => {
 	    if (err) {
 	      exports.logFatal(`There was an error saving emote_data.json...`);
 	      throw err;
 	    }
 	  });
-	exports.log('emote_data.json has been udpated')
+	if (bak)
+		exports.log('emote_data.json has been backed up to emote_data.json.bak in your working directory')
+	else
+		exports.log('emote_data.json has been updated')
 }
 
 exports.resetEmoteData = function() {
