@@ -15,10 +15,27 @@ function onMessageHandler(target, context, msg, self) {
 
 	if (self) return;
 
-	if (msg[0] != '!') handleEmotes(msg, context);
+	if (msg[0] != '!') {
+		handleEmotes(msg, context);
+		return;
+	}
+
+	const command = msg.trim().toLowerCase();
+
+	if (isSuperUser(context))
+	{
+		switch(command) {
+			case '!emotedata':
+				respondEmoteStats(target);
+				break;
+			case '!resetemotedata':
+				resetEmoteData();
+				break;
+		}
+	}
 }
 
-function respondEmoteStats(client, target) {
+function respondEmoteStats(target) {
 	emoteData[0].emotes.forEach(emote =>
 		client.say(target, emote.name + ' : ' + emote.count));
 }
@@ -71,6 +88,10 @@ function resetEmoteData() {
   saveEmoteData();
 
   log('Emote data has been reset');
+}
+
+function isSuperUser(context) {
+	return (context.username === 'mrmedii' || context.mod)
 }
 
 function log(msg) {
