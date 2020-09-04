@@ -1,7 +1,7 @@
 'use strict';
 
 const fs = require('fs');
-let emoteData = require('./emote_data.json');
+let emoteData = require('../../emote_data.json');
 
 var client = undefined;
 
@@ -65,7 +65,7 @@ function checkEmote(tok, context) {
 }
 
 function saveEmoteData(bak) {
-	let fileName = __dirname + '/emote_data.json';
+	let fileName = '/emote_data.json';
 	if (bak)
 		fileName = './emote_data.json.bak';
 	fs.writeFile(fileName, JSON.stringify(emoteData, null, 2), err => {
